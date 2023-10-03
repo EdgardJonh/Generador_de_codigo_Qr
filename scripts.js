@@ -5,14 +5,14 @@ btn.addEventListener('click', evento)
 
 function evento() {
     let user_input = document.querySelector('#input_text')
-    if(user_input.value != ''){
-        if(qr_code_element.childElementCount == 0){
+    if (user_input.value != '') {
+        if (qr_code_element.childElementCount == 0) {
             generate(user_input)
-        }else{
+        } else {
             qr_code_element.innerHTML = ''
             generate(user_input)
         }
-    }else{
+    } else {
         qr_code_element.style = 'display:none'
     }
 
@@ -21,14 +21,17 @@ function evento() {
 
 function generate(user_input) {
 
-    qr_code_element.style = '';
+    qr_code_element.style.background =''
+       
 
-     let qrcode = new QRCode(qr_code_element, {
+    let qrcode = new QRCode(qr_code_element, {
         text: `${user_input.value}`,
-        width: 180,
-        heigth: 180,
-        colorDark: '#000000',
-        colorLight: '#ffffff',
+        width: 250,
+        heigth: 400,
+        padding: 50,
+        border: 20,
+        colorDark: 'blue',
+        // colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.H
 
     })
@@ -36,22 +39,22 @@ function generate(user_input) {
     qr_code_element.appendChild(download)
 
     let download_link = document.createElement('a')
-    download_link.setAttribute('download' , 'qr_code.png')
-    download_link.innerHTML='Download'
+    download_link.setAttribute('download', 'qr_code.png')
+    download_link.innerHTML = 'Download'
     download.appendChild(download_link)
 
     let qr_code_img = document.querySelector('.qr_code img')
     let qr_code_canvas = document.querySelector('canvas')
 
-    if (qr_code_img.getAttribute('src')== null){
+    if (qr_code_img.getAttribute('src') == null) {
         setTimeout(() => {
             download_link.setAttribute('href', `${qr_code_canvas.toDataURL()}`)
         }, 300);
-    }else{
+    } else {
         setTimeout(() => {
             download_link.setAttribute('href', `${qr_code_img.getAttribute('src')}`)
         }, 300);
     }
 }
-generate({value:'https://codepen.io/coding_dev_'})
+generate({ value: 'https://codepen.io/coding_dev_' })
 
