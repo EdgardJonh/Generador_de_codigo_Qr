@@ -1,0 +1,48 @@
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    background-color: bisque;
+}
+
+.col1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(165, 173, 171);
+    width: 50%;
+}
+.contenedorHijo{
+    padding-bottom: 3%;
+}
+.col2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(176, 206, 169);
+    width: 50%;
+}
+.qr-code{
+ background-color: tomato;
+ width: 100px;
+ height: 100px;
+
+}
+.descargar{
+
+
+}
+.btnGenerar{
+    color: black;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    background-color: #92dce5;
+    font-size: 1.6rem;
+}
+.btnGenerar:hover{
+    opacity: .7;
+}
